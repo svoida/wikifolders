@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		B003DAC50E777B91005CCBB8 /* ApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B003DAC40E777B91005CCBB8 /* ApplicationController.m */; };
+		B04B8AB90E78BCFD0040AF6F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AB80E78BCFD0040AF6F /* main.m */; };
+		B04B8AD40E78BF370040AF6F /* Edit Wiki Formatting.wikifolderedit in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD00E78BF370040AF6F /* Edit Wiki Formatting.wikifolderedit */; };
+		B04B8AD50E78BF370040AF6F /* Remove Wiki Formatting.app in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD10E78BF370040AF6F /* Remove Wiki Formatting.app */; };
+		B04B8AD60E78BF370040AF6F /* WikiFolderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD20E78BF370040AF6F /* WikiFolderApp.icns */; };
+		B04B8AD70E78BF370040AF6F /* WikiFolderEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD30E78BF370040AF6F /* WikiFolderEdit.icns */; };
+		B04B8AFD0E78C1D90040AF6F /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AFA0E78C1D90040AF6F /* SCEvent.m */; };
+		B04B8AFE0E78C1D90040AF6F /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AFB0E78C1D90040AF6F /* SCEvents.m */; };
+		B04B8B5E0E78C61B0040AF6F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */; };
+		B04B8B670E78C6240040AF6F /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */; };
+		B04B8B710E78CFB20040AF6F /* WikiFolderRemove.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B6E0E78CFB20040AF6F /* WikiFolderRemove.icns */; };
+		B04B8B720E78CFB20040AF6F /* WikiFolderAdd.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B6F0E78CFB20040AF6F /* WikiFolderAdd.icns */; };
+		B04B8B730E78CFB20040AF6F /* WikiFolderRefresh.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B700E78CFB20040AF6F /* WikiFolderRefresh.icns */; };
+		B04B8B7A0E78D45E0040AF6F /* SmallAdd.png in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B760E78D45E0040AF6F /* SmallAdd.png */; };
+		B04B8B7B0E78D45E0040AF6F /* SmallEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B770E78D45E0040AF6F /* SmallEdit.png */; };
+		B04B8B7C0E78D45E0040AF6F /* SmallRemove.png in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B780E78D45E0040AF6F /* SmallRemove.png */; };
+		B04B8B7D0E78D45E0040AF6F /* SmallRefresh.png in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B790E78D45E0040AF6F /* SmallRefresh.png */; };
+		B0615F450E793575007DB8BE /* Finder.app in Resources */ = {isa = PBXBuildFile; fileRef = B0615F440E793575007DB8BE /* Finder.app */; };
+		B0615F460E793591007DB8BE /* Finder.app in Sources */ = {isa = PBXBuildFile; fileRef = B0615F440E793575007DB8BE /* Finder.app */; };
+		B0615F600E7936C2007DB8BE /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0615F5F0E7936C2007DB8BE /* ScriptingBridge.framework */; };
+		B06160050E7936D9007DB8BE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B06160040E7936D9007DB8BE /* WebKit.framework */; };
+		B06160130E79371A007DB8BE /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = B06160100E79371A007DB8BE /* gradient.png */; };
+		B06160140E79371A007DB8BE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B06160110E79371A007DB8BE /* placeholder.png */; };
+		B06160150E79371A007DB8BE /* template.html in Resources */ = {isa = PBXBuildFile; fileRef = B06160120E79371A007DB8BE /* template.html */; };
+		B08001D50E793C5D0074D0A6 /* NSMutableString+TagManipulation.m in Sources */ = {isa = PBXBuildFile; fileRef = B08001D40E793C5D0074D0A6 /* NSMutableString+TagManipulation.m */; };
+		B0DD54AF0E7900F700F7A0CA /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DD54AD0E7900F700F7A0CA /* Editor.xib */; };
+		B0DD54B70E79015500F7A0CA /* EditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DD54B60E79015500F7A0CA /* EditorController.m */; };
+		B0F9D84B0E7B3B01003D00EC /* warning.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B0F9D84A0E7B3B01003D00EC /* warning.tiff */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		B0615F490E793617007DB8BE /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*/Finder.app";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h",
+			);
+			script = "sdef \"$INPUT_FILE_PATH\" | sdp -fh -o \"$DERIVED_FILES_DIR\" --basename \"$INPUT_FILE_BASE\" --bundleid `defaults read \"$INPUT_FILE_PATH/Contents/Info\" CFBundleIdentifier`";
+		};
+/* End PBXBuildRule section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B04B8B220E78C38F0040AF6F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B04B8B670E78C6240040AF6F /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* WikiFolders_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WikiFolders_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* WikiFolders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiFolders.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B003DAC30E777B91005CCBB8 /* ApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationController.h; sourceTree = "<group>"; };
+		B003DAC40E777B91005CCBB8 /* ApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationController.m; sourceTree = "<group>"; };
+		B04B8AB80E78BCFD0040AF6F /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = source/main.m; sourceTree = "<group>"; };
+		B04B8AD00E78BF370040AF6F /* Edit Wiki Formatting.wikifolderedit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Edit Wiki Formatting.wikifolderedit"; sourceTree = "<group>"; };
+		B04B8AD10E78BF370040AF6F /* Remove Wiki Formatting.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = "Remove Wiki Formatting.app"; sourceTree = "<group>"; };
+		B04B8AD20E78BF370040AF6F /* WikiFolderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderApp.icns; sourceTree = "<group>"; };
+		B04B8AD30E78BF370040AF6F /* WikiFolderEdit.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderEdit.icns; sourceTree = "<group>"; };
+		B04B8AF80E78C1D90040AF6F /* SCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvent.h; sourceTree = "<group>"; };
+		B04B8AF90E78C1D90040AF6F /* SCEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvents.h; sourceTree = "<group>"; };
+		B04B8AFA0E78C1D90040AF6F /* SCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvent.m; sourceTree = "<group>"; };
+		B04B8AFB0E78C1D90040AF6F /* SCEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvents.m; sourceTree = "<group>"; };
+		B04B8AFC0E78C1D90040AF6F /* SCEventListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEventListenerProtocol.h; sourceTree = "<group>"; };
+		B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		B04B8B6E0E78CFB20040AF6F /* WikiFolderRemove.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderRemove.icns; sourceTree = "<group>"; };
+		B04B8B6F0E78CFB20040AF6F /* WikiFolderAdd.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderAdd.icns; sourceTree = "<group>"; };
+		B04B8B700E78CFB20040AF6F /* WikiFolderRefresh.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderRefresh.icns; sourceTree = "<group>"; };
+		B04B8B760E78D45E0040AF6F /* SmallAdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallAdd.png; sourceTree = "<group>"; };
+		B04B8B770E78D45E0040AF6F /* SmallEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallEdit.png; sourceTree = "<group>"; };
+		B04B8B780E78D45E0040AF6F /* SmallRemove.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallRemove.png; sourceTree = "<group>"; };
+		B04B8B790E78D45E0040AF6F /* SmallRefresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallRefresh.png; sourceTree = "<group>"; };
+		B0615F440E793575007DB8BE /* Finder.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; name = Finder.app; path = /System/Library/CoreServices/Finder.app; sourceTree = "<absolute>"; };
+		B0615F5F0E7936C2007DB8BE /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = /System/Library/Frameworks/ScriptingBridge.framework; sourceTree = "<absolute>"; };
+		B06160040E7936D9007DB8BE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		B06160100E79371A007DB8BE /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
+		B06160110E79371A007DB8BE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		B06160120E79371A007DB8BE /* template.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = template.html; sourceTree = "<group>"; };
+		B08001D30E793C5D0074D0A6 /* NSMutableString+TagManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+TagManipulation.h"; sourceTree = "<group>"; };
+		B08001D40E793C5D0074D0A6 /* NSMutableString+TagManipulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+TagManipulation.m"; sourceTree = "<group>"; };
+		B0DD54AE0E7900F700F7A0CA /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = resources/English.lproj/Editor.xib; sourceTree = "<group>"; };
+		B0DD54B50E79015500F7A0CA /* EditorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorController.h; sourceTree = "<group>"; };
+		B0DD54B60E79015500F7A0CA /* EditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorController.m; sourceTree = "<group>"; };
+		B0E8BB840E7AF9300052097E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		B0F9D84A0E7B3B01003D00EC /* warning.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = warning.tiff; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				B04B8B5E0E78C61B0040AF6F /* Sparkle.framework in Frameworks */,
+				B0615F600E7936C2007DB8BE /* ScriptingBridge.framework in Frameworks */,
+				B06160050E7936D9007DB8BE /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B003DAC30E777B91005CCBB8 /* ApplicationController.h */,
+				B003DAC40E777B91005CCBB8 /* ApplicationController.m */,
+				B0E8BB840E7AF9300052097E /* Constants.h */,
+				B0DD54B50E79015500F7A0CA /* EditorController.h */,
+				B0DD54B60E79015500F7A0CA /* EditorController.m */,
+				B08001D30E793C5D0074D0A6 /* NSMutableString+TagManipulation.h */,
+				B08001D40E793C5D0074D0A6 /* NSMutableString+TagManipulation.m */,
+				B04B8AF80E78C1D90040AF6F /* SCEvent.h */,
+				B04B8AFA0E78C1D90040AF6F /* SCEvent.m */,
+				B04B8AFC0E78C1D90040AF6F /* SCEventListenerProtocol.h */,
+				B04B8AF90E78C1D90040AF6F /* SCEvents.h */,
+				B04B8AFB0E78C1D90040AF6F /* SCEvents.m */,
+			);
+			name = Classes;
+			path = source;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				B0615F5F0E7936C2007DB8BE /* ScriptingBridge.framework */,
+				B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */,
+				B06160040E7936D9007DB8BE /* WebKit.framework */,
+			);
+			name = "Linked Frameworks";
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* WikiFolders.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* WikiFolders */ = {
+			isa = PBXGroup;
+			children = (
+				B0615F440E793575007DB8BE /* Finder.app */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = WikiFolders;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* WikiFolders_Prefix.pch */,
+				B04B8AB80E78BCFD0040AF6F /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0F9D84A0E7B3B01003D00EC /* warning.tiff */,
+				B06160100E79371A007DB8BE /* gradient.png */,
+				B06160110E79371A007DB8BE /* placeholder.png */,
+				B06160120E79371A007DB8BE /* template.html */,
+				B04B8B760E78D45E0040AF6F /* SmallAdd.png */,
+				B04B8B770E78D45E0040AF6F /* SmallEdit.png */,
+				B04B8B790E78D45E0040AF6F /* SmallRefresh.png */,
+				B04B8B780E78D45E0040AF6F /* SmallRemove.png */,
+				B04B8AD20E78BF370040AF6F /* WikiFolderApp.icns */,
+				B04B8B6F0E78CFB20040AF6F /* WikiFolderAdd.icns */,
+				B04B8AD30E78BF370040AF6F /* WikiFolderEdit.icns */,
+				B04B8B700E78CFB20040AF6F /* WikiFolderRefresh.icns */,
+				B04B8B6E0E78CFB20040AF6F /* WikiFolderRemove.icns */,
+				B04B8AD00E78BF370040AF6F /* Edit Wiki Formatting.wikifolderedit */,
+				B04B8AD10E78BF370040AF6F /* Remove Wiki Formatting.app */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				B0DD54AD0E7900F700F7A0CA /* Editor.xib */,
+			);
+			name = Resources;
+			path = resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* WikiFolders */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "WikiFolders" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				B04B8B220E78C38F0040AF6F /* CopyFiles */,
+			);
+			buildRules = (
+				B0615F490E793617007DB8BE /* PBXBuildRule */,
+			);
+			dependencies = (
+			);
+			name = WikiFolders;
+			productInstallPath = "$(HOME)/Applications";
+			productName = WikiFolders;
+			productReference = 8D1107320486CEB800E47090 /* WikiFolders.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WikiFolders" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* WikiFolders */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* WikiFolders */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				B04B8AD40E78BF370040AF6F /* Edit Wiki Formatting.wikifolderedit in Resources */,
+				B04B8AD50E78BF370040AF6F /* Remove Wiki Formatting.app in Resources */,
+				B04B8AD60E78BF370040AF6F /* WikiFolderApp.icns in Resources */,
+				B04B8AD70E78BF370040AF6F /* WikiFolderEdit.icns in Resources */,
+				B04B8B710E78CFB20040AF6F /* WikiFolderRemove.icns in Resources */,
+				B04B8B720E78CFB20040AF6F /* WikiFolderAdd.icns in Resources */,
+				B04B8B730E78CFB20040AF6F /* WikiFolderRefresh.icns in Resources */,
+				B04B8B7A0E78D45E0040AF6F /* SmallAdd.png in Resources */,
+				B04B8B7B0E78D45E0040AF6F /* SmallEdit.png in Resources */,
+				B04B8B7C0E78D45E0040AF6F /* SmallRemove.png in Resources */,
+				B04B8B7D0E78D45E0040AF6F /* SmallRefresh.png in Resources */,
+				B0DD54AF0E7900F700F7A0CA /* Editor.xib in Resources */,
+				B0615F450E793575007DB8BE /* Finder.app in Resources */,
+				B06160130E79371A007DB8BE /* gradient.png in Resources */,
+				B06160140E79371A007DB8BE /* placeholder.png in Resources */,
+				B06160150E79371A007DB8BE /* template.html in Resources */,
+				B0F9D84B0E7B3B01003D00EC /* warning.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0615F460E793591007DB8BE /* Finder.app in Sources */,
+				B003DAC50E777B91005CCBB8 /* ApplicationController.m in Sources */,
+				B04B8AB90E78BCFD0040AF6F /* main.m in Sources */,
+				B04B8AFD0E78C1D90040AF6F /* SCEvent.m in Sources */,
+				B04B8AFE0E78C1D90040AF6F /* SCEvents.m in Sources */,
+				B0DD54B70E79015500F7A0CA /* EditorController.m in Sources */,
+				B08001D50E793C5D0074D0A6 /* NSMutableString+TagManipulation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		B0DD54AD0E7900F700F7A0CA /* Editor.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DD54AE0E7900F700F7A0CA /* English */,
+			);
+			name = Editor.xib;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WikiFolders_Prefix.pch;
+				INFOPLIST_FILE = resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = WikiFolders;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/frameworks\"",
+				);
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = WikiFolders_Prefix.pch;
+				INFOPLIST_FILE = resources/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = WikiFolders;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "WikiFolders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WikiFolders" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

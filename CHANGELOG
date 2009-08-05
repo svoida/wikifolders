@@ -1,0 +1,14 @@
+Version 1.2 (beta)
+------------------
+- Added minimum system version requirement to application file
+- Images in the WikiFolder can be referenced inline using <IMG/> tags (bug #2119594)
+- WikiFolder HTML rendering computes the folder window size correctly now (bug #2116936)
+
+Version 1.1 (beta)
+------------------
+- Fixed preference type conflict that was crashing the renderer
+- Changed appcase URL for automatic updates to point to SourceForge
+
+Version 1.0 (alpha)
+-------------------
+- Initial release (internal testing only)

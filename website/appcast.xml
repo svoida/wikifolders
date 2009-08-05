@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"> 
+    <channel> 
+        <title>WikiFolders AppCast</title> 
+        <link>http://wikifolders.sourceforge.net/appcast.xml</link> 
+        <description>Most recent changes with links to updates.</description> 
+        <language>en</language> 
+        <item> 
+            <title>Version 1.2 (Beta Release)</title> 
+            <description><![CDATA[
+<div style="font:small sans-serif;">
+<p style="font:bold medium sans-serif;">Version 1.2 (Beta Release)</p>
+<ul><li>Added minimum system version requirement to application file</li>
+<li>Images in the WikiFolder can be referenced inline using &lt;IMG/&gt; tags (bug #2119594)</li>
+<li>WikiFolder HTML rendering computes the folder window size correctly now (bug #2116936)</li></ul>
+</div>
+]]></description> 
+            <pubDate>Wed, 5 Aug 2009 12:43:00</pubDate> 
+            <enclosure sparkle:version="r3" sparkle:shortVersionString="1.2" url="http://downloads.sourceforge.net/project/wikifolders/WikiFolders%201.x/1.2/WikiFolders_1.2.dmg" length="2360755" type="application/octet-stream"/>
+        </item> 
+    </channel> 
+</rss> 
