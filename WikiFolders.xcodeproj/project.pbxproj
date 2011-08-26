@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,6 @@
 		B04B8AD70E78BF370040AF6F /* WikiFolderEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD30E78BF370040AF6F /* WikiFolderEdit.icns */; };
 		B04B8AFD0E78C1D90040AF6F /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AFA0E78C1D90040AF6F /* SCEvent.m */; };
 		B04B8AFE0E78C1D90040AF6F /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AFB0E78C1D90040AF6F /* SCEvents.m */; };
-		B04B8B5E0E78C61B0040AF6F /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */; };
 		B04B8B670E78C6240040AF6F /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */; };
 		B04B8B710E78CFB20040AF6F /* WikiFolderRemove.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B6E0E78CFB20040AF6F /* WikiFolderRemove.icns */; };
 		B04B8B720E78CFB20040AF6F /* WikiFolderAdd.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B6F0E78CFB20040AF6F /* WikiFolderAdd.icns */; };
@@ -38,6 +37,7 @@
 		B0DD54AF0E7900F700F7A0CA /* Editor.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DD54AD0E7900F700F7A0CA /* Editor.xib */; };
 		B0DD54B70E79015500F7A0CA /* EditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DD54B60E79015500F7A0CA /* EditorController.m */; };
 		B0F9D84B0E7B3B01003D00EC /* warning.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B0F9D84A0E7B3B01003D00EC /* warning.tiff */; };
+		BC349916140844CE00425B15 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC349915140844CE00425B15 /* Sparkle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -110,6 +110,7 @@
 		B0DD54B60E79015500F7A0CA /* EditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorController.m; sourceTree = "<group>"; };
 		B0E8BB840E7AF9300052097E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B0F9D84A0E7B3B01003D00EC /* warning.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = warning.tiff; sourceTree = "<group>"; };
+		BC349915140844CE00425B15 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC349916140844CE00425B15 /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				B04B8B5E0E78C61B0040AF6F /* Sparkle.framework in Frameworks */,
 				B0615F600E7936C2007DB8BE /* ScriptingBridge.framework in Frameworks */,
 				B06160050E7936D9007DB8BE /* WebKit.framework in Frameworks */,
 			);
@@ -150,6 +151,7 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC349915140844CE00425B15 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				B0615F5F0E7936C2007DB8BE /* ScriptingBridge.framework */,
 				B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */,
@@ -263,9 +265,16 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WikiFolders" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* WikiFolders */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,8 +369,6 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/frameworks\"",
 				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_OBJC_GC = required;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -369,6 +376,7 @@
 				GCC_PREFIX_HEADER = WikiFolders_Prefix.pch;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = WikiFolders;
 			};
 			name = Debug;
@@ -390,6 +398,7 @@
 				GCC_PREFIX_HEADER = WikiFolders_Prefix.pch;
 				INFOPLIST_FILE = resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = WikiFolders;
 			};
 			name = Release;
@@ -397,26 +406,24 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_ENABLE_OBJC_GC = required;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

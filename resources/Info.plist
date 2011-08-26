@@ -35,21 +35,31 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array/>
 	<key>CFBundleVersion</key>
-	<string>r3</string>
+	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.utilities</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.7.0</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2008-2011 Stephen Voida</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array/>
 	<key>SUFeedURL</key>
-	<string>http://wikifolders.sourceforge.net/appcast.xml</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2008 Stephen Voida, University of Calgary</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>10.5.0</string>
+	<string>https://cheddar.ics.uci.edu/~svoida/wikifolders/appcast.xml</string>
+	<key>UTExportedTypeDeclarations</key>
+	<array/>
+	<key>UTImportedTypeDeclarations</key>
+	<array/>
 </dict>
 </plist>

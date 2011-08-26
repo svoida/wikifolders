@@ -151,7 +151,9 @@ NSString *folderPathRendering;
 
 	// Finally, check to see if we actually changed anything
 	NSString *wikiTextFilename = [folder stringByAppendingPathComponent:WIKITEXT_FILENAME];
-	NSMutableString *originalWikiText = [NSString stringWithContentsOfFile:wikiTextFilename];
+    NSMutableString *originalWikiText = [NSString stringWithContentsOfFile:wikiTextFilename
+                                                                  encoding:NSUTF8StringEncoding
+                                                                     error:NULL];
 	if ([originalWikiText compare:wikiText options:NSLiteralSearch] != NSOrderedSame ||
 		(!optimalBeforeEditing && [editorCheckbox state])) {
 		// If so, render the wikitext to HTML and rewrite the background
@@ -195,7 +197,9 @@ NSString *folderPathRendering;
 	
 	// Finally, check to see if we actually changed anything
 	NSString *wikiTextFilename = [folder stringByAppendingPathComponent:WIKITEXT_FILENAME];
-	NSMutableString *originalWikiText = [NSString stringWithContentsOfFile:wikiTextFilename];
+	NSMutableString *originalWikiText = [NSString stringWithContentsOfFile:wikiTextFilename
+                                                                  encoding:NSUTF8StringEncoding
+                                                                     error:NULL];
 	if (useForce || [originalWikiText compare:wikiText options:NSLiteralSearch] != NSOrderedSame) {
 		// If so, render the wikitext to HTML and rewrite the background
 		NSString *html = [self createHTMLFromWikiText:wikiText forFolder:folder];
@@ -250,18 +254,18 @@ NSString *folderPathRendering;
 	if ([fm fileExistsAtPath:folder isDirectory:&isDirectory] && isDirectory) {
 		// Check that there is an editor placeholder icon in the directory
 		if (![fm fileExistsAtPath:[folder stringByAppendingPathComponent:WIKITEXT_EDITOR_FILENAME]]) {
-			BOOL result = [fm copyPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WIKITEXT_EDITOR_FILENAME]
-								toPath:[folder stringByAppendingPathComponent:WIKITEXT_EDITOR_FILENAME]
-							   handler:nil];
+            BOOL result = [fm copyItemAtPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WIKITEXT_EDITOR_FILENAME]
+                                      toPath:[folder stringByAppendingPathComponent:WIKITEXT_EDITOR_FILENAME]
+                                       error:NULL];
 			if (!result)
 				return NO;
 		}
 		
 		// Check that there is a wikitext removal app in the directory
 		if (![fm fileExistsAtPath:[folder stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]]) {
-			BOOL result = [fm copyPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]
-								toPath:[folder stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]
-							   handler:nil];
+            BOOL result = [fm copyItemAtPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]
+                                      toPath:[folder stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]
+                                       error:NULL];
 			if (!result)
 				return NO;
 		}
@@ -287,7 +291,9 @@ NSString *folderPathRendering;
 - (NSString *)loadAndValidateWikiText:(NSString *)folder;
 {
 	NSString *wikiTextFilename = [folder stringByAppendingPathComponent:WIKITEXT_FILENAME];
-	NSMutableString *wikiText = wikiText = [[NSString stringWithContentsOfFile:wikiTextFilename] mutableCopy];
+	NSMutableString *wikiText = wikiText = [[NSString stringWithContentsOfFile:wikiTextFilename
+                                                                      encoding:NSUTF8StringEncoding
+                                                                         error:NULL] mutableCopy];
 	
 	FinderApplication *finder = [SBApplication applicationWithBundleIdentifier:@"com.apple.finder"];
 	
@@ -400,7 +406,9 @@ NSString *folderPathRendering;
 		return nil;	
 	
 	// Load up the template HTML
-	NSMutableString *templateHTML = [[NSString stringWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:HTML_TEMPLATE_FILENAME]] mutableCopy];
+	NSMutableString *templateHTML = [[NSString stringWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:HTML_TEMPLATE_FILENAME]
+                                                               encoding:NSUTF8StringEncoding
+                                                                  error:NULL] mutableCopy];
 	
 	// Set the height of the title stripe
 	[templateHTML replaceOccurrencesOfString:@"%%HEIGHT%%"
@@ -607,7 +615,8 @@ NSString *folderPathRendering;
 	NSMutableArray *placeholders = [[NSMutableArray alloc] init];
 	int currentCount = [[folder items] count];
 	if (currentCount < MINIMUM_FILES_FOR_POSITIONING) {
-		for (int i = currentCount; i < MINIMUM_FILES_FOR_POSITIONING; i++) {
+        int i;
+		for (i = currentCount; i < MINIMUM_FILES_FOR_POSITIONING; i++) {
 			NSString *tempFilename = [NSString stringWithFormat:PLACEHOLDER_FILENAME_FORMAT, i];
 			[[[NSData alloc] init] writeToFile:[path stringByAppendingPathComponent:tempFilename] atomically:NO];
 			[placeholders addObject:tempFilename];
@@ -692,18 +701,17 @@ NSString *folderPathRendering;
 	NSRect renderingBounds = [[[[webKitView mainFrame] frameView] documentView] bounds];
 	if (renderingBounds.size.height == (CGFloat)0.0)
 		return;
-	
+
+	// Get the Scripting Bridge references we need
+    FinderApplication *finder = [SBApplication applicationWithBundleIdentifier:@"com.apple.finder"];
+    NSURL *folderURL = [NSURL fileURLWithPath:folderPathRendering];
+    FinderContainer *finderFolder = [[finder containers] objectAtLocation:folderURL];
+    if (finderFolder == nil)
+        return;
+    
 	// Move the files around first
 	DOMDocument *document = [webKitView mainFrameDocument];
 	if (document != nil) {
-		FinderApplication *finder = [SBApplication applicationWithBundleIdentifier:@"com.apple.finder"];
-		
-		// Get a reference to the folder
-		NSURL *folderURL = [NSURL fileURLWithPath:folderPathRendering];
-		FinderContainer *finderFolder = [[finder containers] objectAtLocation:folderURL];
-		if (finderFolder == nil)
-			return;
-		
 		for (FinderItem *item in [finderFolder items]) {
 			DOMElement *element = [document getElementById:[item name]];
 			if (element != nil)
@@ -726,6 +734,11 @@ NSString *folderPathRendering;
 	// Write the image and set it as the background of the folder
 	[self setBackgroundPictureUsingData:[webImageRep representationUsingType:NSPNGFileType properties:nil]
 							  forFolder:folderPathRendering];
+    
+    // Manually refresh Finder's view of the folder
+    // (This is not very graceful and is due to a bug in the way that the 10.7 Finder works)
+    [finderFolder close];
+    [finderFolder openUsing:finder withProperties:nil];
 }
 
 - (BOOL)setBackgroundPictureUsingData:(NSData *)imageData forFolder:(NSString *)path;

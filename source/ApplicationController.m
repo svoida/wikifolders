@@ -83,7 +83,9 @@
 
 - (NSString *)versionString;
 {
-	return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	return [NSString stringWithFormat:@"%@ (Build %@)",
+            [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"],
+            [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
 }
 
 #pragma mark Lifecycle methods
@@ -188,10 +190,11 @@
 	[panel setCanChooseDirectories:YES];
 	[panel setAllowsMultipleSelection:NO];
 	[panel setMessage:@"Select a folder you would like to annotate as a WikiFolder:"];
-	if (NSOKButton == [panel runModalForDirectory:NSHomeDirectory() file:nil types:nil] &&
-		[[panel filenames] count] > 0)
+    [panel setDirectoryURL:[NSURL URLWithString:NSHomeDirectory()]];
+    if (NSOKButton == [panel runModal] &&
+        [[panel URLs] count] > 0)
 	{
-		NSString *folderPath = [[panel filenames] objectAtIndex:0];
+        NSString *folderPath = [[[panel URLs] objectAtIndex:0] path];
 		[self addFolder:folderPath skipWatcherUpdate:NO];
 	}
 	
@@ -291,9 +294,9 @@
 	
 	// Make sure a removal app is in the target folder
 	if (![fm fileExistsAtPath:removeAppPath]) {
-		if (![fm copyPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]
-				   toPath:removeAppPath
-				  handler:nil]) {
+        if (![fm copyItemAtPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:WIKITEXT_REMOVAL_FILENAME]
+                         toPath:removeAppPath
+                          error:NULL]) {
 			NSRunCriticalAlertPanel(@"Problem removing WikiFolder formatting",
 									@"The application does not have write access to the folder.",
 									@"OK", nil, nil);
@@ -311,14 +314,14 @@
 		
 		// See if it's done
 		stillRunning = NO;
-		NSLog(@"looking for %@", removeAppPath);
-		for (NSDictionary *appInfo in [[NSWorkspace sharedWorkspace] launchedApplications]) {
-			NSLog(@"found %@", (NSString *)[appInfo objectForKey:@"NSApplicationPath"]);
-			if([(NSString *)[appInfo objectForKey:@"NSApplicationPath"] compare:removeAppPath] == NSOrderedSame)
-				stillRunning = YES;
-		}
+// TODO: This is broken for some reason under 10.7. Fix in a future revision.
+//		for (NSRunningApplication *appInfo in [[NSWorkspace sharedWorkspace] runningApplications]) {
+//            NSString *appPath = [[appInfo bundleURL] path];
+//			if (appPath && [appPath compare:removeAppPath] == NSOrderedSame)
+//				stillRunning = YES;
+//		}
 	}
-	
+    
 	// Check to see if the removal worked; if it did, then pull the folder off of our list
 	if (![fm fileExistsAtPath:removeAppPath]) {
 		[folderArrayController removeObject:folderPath];
