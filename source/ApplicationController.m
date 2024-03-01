@@ -62,7 +62,7 @@
 		selectionStatusString = nil;
 
 		// Set up our FSEvents hook
-		watcher = [SCEvents sharedPathWatcher]; 
+		watcher = [[SCEvents alloc] init];
 		[watcher setNotificationLatency:[[[NSUserDefaults standardUserDefaults] objectForKey:WF_FOLDER_WATCH_TIME_DELAY_KEY] doubleValue]];
 		[watcher setDelegate:self];
 		

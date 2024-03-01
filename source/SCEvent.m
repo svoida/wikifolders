@@ -1,165 +1,108 @@
 /*
- *  $Id: SCEvent.m 15 2008-04-21 20:06:30Z stuart $
+ *  $Id: SCEvent.m 195 2011-03-15 21:47:34Z stuart $
  *
  *  SCEvents
+ *  http://stuconnolly.com/projects/code/
  *
- *  Copyright (c) 2008 Stuart Connolly. All rights reserved.
+ *  Copyright (c) 2011 Stuart Connolly. All rights reserved.
+ *
+ *  Permission is hereby granted, free of charge, to any person
+ *  obtaining a copy of this software and associated documentation
+ *  files (the "Software"), to deal in the Software without
+ *  restriction, including without limitation the rights to use,
+ *  copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the
+ *  Software is furnished to do so, subject to the following
+ *  conditions:
+ *
+ *  The above copyright notice and this permission notice shall be
+ *  included in all copies or substantial portions of the Software.
  * 
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *  OTHER DEALINGS IN THE SOFTWARE.
  */
 
 #import "SCEvent.h"
 
 @implementation SCEvent
 
-// -------------------------------------------------------------------------------
-// eventWithEventId:eventPath:eventFlag:
-//
-// Returns an initialized instance of SCEvent using the supplied event ID, path 
-// and flag.
-// -------------------------------------------------------------------------------
-+ (SCEvent *)eventWithEventId:(NSUInteger)eventId eventDate:(NSDate *)date eventPath:(NSString *)eventPath eventFlag:(FSEventStreamEventFlags)eventFlag
+@synthesize _eventId;
+@synthesize _eventDate;
+@synthesize _eventPath;
+@synthesize _eventFlags;
+
+#pragma mark -
+#pragma mark Initialisation
+
+/**
+ * Returns an initialized instance of SCEvent using the supplied event ID, date, path 
+ * and flag.
+ *
+ * @param identifer The ID of the event
+ * @param date      The date of the event
+ * @param path      The file system path of the event
+ * @param flags     The flags associated with the event
+ *
+ * @return The initialized (autoreleased) instance
+ */
++ (SCEvent *)eventWithEventId:(NSUInteger)identifier 
+					eventDate:(NSDate *)date 
+					eventPath:(NSString *)path 
+				   eventFlags:(SCEventFlags)flags
 {
-    return [[[SCEvent alloc] initWithEventId:eventId eventDate:date eventPath:eventPath eventFlag:eventFlag] autorelease];
+    return [[SCEvent alloc] initWithEventId:identifier eventDate:date eventPath:path eventFlags:flags];
 }
 
-// -------------------------------------------------------------------------------
-// initWithEventId:eventPath:eventFlag:
-//
-// Initializes an instance of SCEvent using the supplied event ID, path and flag.
-// -------------------------------------------------------------------------------
-- (id)initWithEventId:(NSUInteger)eventId eventDate:(NSDate *)date eventPath:(NSString *)eventPath eventFlag:(FSEventStreamEventFlags)eventFlag
+/**
+ * Initializes an instance of SCEvent using the supplied event ID, path and flag.
+ *
+ * @param identifer The ID of the event
+ * @param date      The date of the event
+ * @param path      The file system path of the event
+ * @param flags     The flags associated with the event
+ *
+ * @return The initialized instance
+ */
+- (id)initWithEventId:(NSUInteger)identifier 
+			eventDate:(NSDate *)date 
+			eventPath:(NSString *)path 
+		   eventFlags:(SCEventFlags)flags
 {
     if ((self = [super init])) {
-        [self setEventId:eventId];
+        [self setEventId:identifier];
         [self setEventDate:date];
-        [self setEventPath:eventPath];
-        [self setEventFlag:eventFlag];
+        [self setEventPath:path];
+        [self setEventFlags:flags];
     }
     
     return self;
 }
 
-// -------------------------------------------------------------------------------
-// eventId
-//
-// Returns the event ID of this event.
-// -------------------------------------------------------------------------------
-- (NSUInteger)eventId
-{
-    return _eventId;
-}
+#pragma mark -
+#pragma mark Other
 
-// -------------------------------------------------------------------------------
-// setEventId:
-//
-// Sets the event ID of this event to the supplied ID.
-// -------------------------------------------------------------------------------
-- (void)setEventId:(NSUInteger)eventId
-{
-    if (_eventId != eventId) {
-        _eventId = eventId;
-    }
-}
-
-// -------------------------------------------------------------------------------
-// eventDate
-//
-// Returns the date of this event.
-// -------------------------------------------------------------------------------
-- (NSDate *)eventDate
-{
-    return _eventDate;
-}
-
-// -------------------------------------------------------------------------------
-// setEventDate:
-//
-// Sets the event date of this event to the supplied date.
-// -------------------------------------------------------------------------------
-- (void)setEventDate:(NSDate *)date
-{
-    if (_eventDate != date) {
-        [_eventDate release];
-        _eventDate = [date retain];
-    }
-}
-
-// -------------------------------------------------------------------------------
-// eventPath
-//
-// Returns the event path of this event.
-// -------------------------------------------------------------------------------
-- (NSString *)eventPath
-{
-    return _eventPath;
-}
-
-// -------------------------------------------------------------------------------
-// setEventPath:
-//
-// Sets the event path of this event to the supplied path.
-// -------------------------------------------------------------------------------
-- (void)setEventPath:(NSString *)eventPath
-{
-    if (_eventPath != eventPath) {
-        _eventPath = eventPath;
-    }
-}
-
-// -------------------------------------------------------------------------------
-// eventFlag
-//
-// Returns the event flag of this event. This is one of the FSEventStreamEventFlags
-// defined in FSEvents.h. See this header for possible constants and there meanings.
-// -------------------------------------------------------------------------------
-- (FSEventStreamEventFlags)eventFlag
-{
-    return _eventFlag;
-}
-
-// -------------------------------------------------------------------------------
-// setEventFlag:
-//
-// Sets the event flag of this event to the supplied flag. Must be one of the 
-// FSEventStreamEventFlags constants defined in FSEvents.h.
-// -------------------------------------------------------------------------------
-- (void)setEventFlag:(FSEventStreamEventFlags)eventFlag
-{
-    if (_eventFlag != eventFlag) {
-        _eventFlag = eventFlag;
-    }
-}
-
-// -------------------------------------------------------------------------------
-// description
-//
-// Provides the string used when printing this object in NSLog, etc. Useful for
-// debugging purposes.
-// -------------------------------------------------------------------------------
+/**
+ * Provides the string used when printing this object in NSLog, etc. Useful for
+ * debugging purposes.
+ *
+ * @return The description string
+ */
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<%@ { eventId = %d, eventPath = %@, eventFlag = %d } >", [self className], _eventId, _eventPath, _eventFlag];
+	return [NSString stringWithFormat:@"<%@ { eventId = %ld, eventPath = %@, eventFlags = %ld } >", 
+			[self className], 
+			((unsigned long)_eventId), 
+			[self eventPath], 
+			((unsigned long)_eventFlags)];
 }
 
-// -------------------------------------------------------------------------------
-// dealloc
-// -------------------------------------------------------------------------------
-- (void)dealloc
-{
-    [_eventDate release], _eventDate = nil;
-    [super dealloc];
-}
+#pragma mark -
+
 
 @end

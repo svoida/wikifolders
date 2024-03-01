@@ -46,7 +46,7 @@
 
 #pragma mark Property method synthesis
 @property (readwrite, copy) NSString *currentStatusString;
-@property (readwrite, assign) NSMutableArray *folderArray;
+@property (readwrite) NSMutableArray *folderArray;
 @property (readonly, copy) NSString *versionString;
 
 #pragma mark Interface IBAction callback methods

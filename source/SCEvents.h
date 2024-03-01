@@ -1,72 +1,118 @@
 /*
- *  $Id: SCEvents.h 25 2008-05-20 22:26:54Z stuart $
+ *  $Id: SCEvents.h 205 2011-06-18 15:16:08Z stuart $
  *
  *  SCEvents
+ *  http://stuconnolly.com/projects/code/
  *
- *  Copyright (c) 2008 Stuart Connolly. All rights reserved.
+ *  Copyright (c) 2011 Stuart Connolly. All rights reserved.
+ *
+ *  Permission is hereby granted, free of charge, to any person
+ *  obtaining a copy of this software and associated documentation
+ *  files (the "Software"), to deal in the Software without
+ *  restriction, including without limitation the rights to use,
+ *  copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the
+ *  Software is furnished to do so, subject to the following
+ *  conditions:
+ *
+ *  The above copyright notice and this permission notice shall be
+ *  included in all copies or substantial portions of the Software.
  * 
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *  OTHER DEALINGS IN THE SOFTWARE.
  */
 
 #import <Foundation/Foundation.h>
+#if TARGET_OS_EMBEDDED || TARGET_OS_IPHONE || TARGET_OS_WIN32
+#import <CFNetwork/CFNetwork.h>
+#else
 #import <CoreServices/CoreServices.h>
+#endif
+
+
+#import "SCEventListenerProtocol.h"
 
 @class SCEvent;
-@protocol SCEventListenerProtocol;
 
+/**
+ * @class SCEvents SCEvents.h
+ *
+ * @author Stuart Connolly http://stuconnolly.com/
+ *
+ * An Objective-C wrapper for the FSEvents C API.
+ */
 @interface SCEvents : NSObject 
 {
-    id <SCEventListenerProtocol> _delegate;     // The delegate that SCEvents is to notify of events that occur.
+    __unsafe_unretained id <NSObject, SCEventListenerProtocol> _delegate; 
     
-    BOOL              _isWatchingPaths;         // Is the events stream currently running.
-    BOOL              _ignoreEventsFromSubDirs; // Ignore events from sub-directories of the excluded paths. Defaults to YES.
-    FSEventStreamRef  _eventStream;             // The actual FSEvents stream reference.
-    CFTimeInterval    _notificationLatency;     // The latency time of which SCEvents is notified by FSEvents of events. Defaults to 3 seconds.
+    BOOL                 _isWatchingPaths;
+    BOOL                 _ignoreEventsFromSubDirs;
+	CFRunLoopRef         _runLoop;
+    FSEventStreamRef     _eventStream;
+    CFTimeInterval       _notificationLatency;
+	FSEventStreamEventId _resumeFromEventId;
       
-    SCEvent          *_lastEvent;               // The last event that occurred and that was delivered to the delegate.
-    NSMutableArray   *_watchedPaths;            // The paths that are to be watched for events.
-    NSMutableArray   *_excludedPaths;           // The paths that SCEvents should ignore events from and not deliver to the delegate.
+    SCEvent              *_lastEvent;
+    NSArray              *_watchedPaths;
+    NSArray              *_excludedPaths;
+	
+    dispatch_queue_t     _eventsQueue;
 }
 
-+ (id)sharedPathWatcher;
+/**
+ * @property _delegate The delegate that SCEvents is to notify when events occur
+ */
+@property (readwrite, assign, getter=delegate, setter=setDelegate:) id <NSObject, SCEventListenerProtocol> _delegate;
 
-- (id)delegate;
-- (void)setDelegate:(id)delgate;
+/**
+ * @property _isWatchingPaths Indicates whether the events stream is currently running
+ */
+@property (readonly, getter=isWatchingPaths) BOOL _isWatchingPaths;
 
-- (BOOL)isWatchingPaths;
+/**
+ * @property _ignoreEventsFromSubDirs Indicates whether events from sub-directories of the excluded paths are ignored. Defaults to YES.
+ */
+@property (readwrite, assign, getter=ignoreEventsFromSubDirs, setter=setIgnoreEventsFromSubDirs:) BOOL _ignoreEventsFromSubDirs;
 
-- (BOOL)ignoreEventsFromSubDirs;
-- (void)setIgnoreEeventsFromSubDirs:(BOOL)ignore;
+/**
+ * @property _lastEvent The last event that occurred and that was delivered to the delegate.
+ */
+@property (readwrite, strong, getter=lastEvent, setter=setLastEvent:) SCEvent *_lastEvent;
 
-- (SCEvent *)lastEvent;
-- (void)setLastEvent:(SCEvent *)event;
+/**
+ * @property _notificationLatency The latency time of which SCEvents is notified by FSEvents of events. Defaults to 3 seconds.
+ */
+@property (readwrite, assign, getter=notificationLatency, setter=setNotificationLatency:) double _notificationLatency;
 
-- (double)notificationLatency;
-- (void)setNotificationLatency:(double)latency;
+/**
+ * @property _watchedPaths The paths that are to be watched for events.
+ */
+@property (readwrite, strong, getter=watchedPaths, setter=setWatchedPaths:) NSArray *_watchedPaths;
 
-- (NSMutableArray *)watchedPaths;
-- (void)setWatchedPaths:(NSMutableArray *)paths;
+/**
+ * @property _excludedPaths The paths that SCEvents should ignore events from and not deliver to the delegate.
+ */
+@property (readwrite, strong, getter=excludedPaths, setter=setExcludedPaths:) NSArray *_excludedPaths;
 
-- (NSMutableArray *)excludedPaths;
-- (void)setExcludedPaths:(NSMutableArray *)paths;
+/**
+ * @property _resumeFromEventId The event ID from which to resume from when the stream is started.
+ */
+@property (readwrite, assign, getter=resumeFromEventId, setter=setResumeFromEventId:) FSEventStreamEventId _resumeFromEventId;
 
 - (BOOL)flushEventStreamSync;
 - (BOOL)flushEventStreamAsync;
 
-- (BOOL)startWatchingPaths:(NSMutableArray *)paths;
-- (BOOL)startWatchingPaths:(NSMutableArray *)paths onRunLoop:(NSRunLoop *)runLoop;
+- (BOOL)startWatchingPaths:(NSArray *)paths;
+- (BOOL)startWatchingPaths:(NSArray *)paths onRunLoop:(NSRunLoop *)runLoop;
 
 - (BOOL)stopWatchingPaths;
+
+- (NSString *)streamDescription;
 
 @end

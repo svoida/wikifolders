@@ -16,8 +16,6 @@
 		B04B8AD50E78BF370040AF6F /* Remove Wiki Formatting.app in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD10E78BF370040AF6F /* Remove Wiki Formatting.app */; };
 		B04B8AD60E78BF370040AF6F /* WikiFolderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD20E78BF370040AF6F /* WikiFolderApp.icns */; };
 		B04B8AD70E78BF370040AF6F /* WikiFolderEdit.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8AD30E78BF370040AF6F /* WikiFolderEdit.icns */; };
-		B04B8AFD0E78C1D90040AF6F /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AFA0E78C1D90040AF6F /* SCEvent.m */; };
-		B04B8AFE0E78C1D90040AF6F /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = B04B8AFB0E78C1D90040AF6F /* SCEvents.m */; };
 		B04B8B670E78C6240040AF6F /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */; };
 		B04B8B710E78CFB20040AF6F /* WikiFolderRemove.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B6E0E78CFB20040AF6F /* WikiFolderRemove.icns */; };
 		B04B8B720E78CFB20040AF6F /* WikiFolderAdd.icns in Resources */ = {isa = PBXBuildFile; fileRef = B04B8B6F0E78CFB20040AF6F /* WikiFolderAdd.icns */; };
@@ -38,6 +36,8 @@
 		B0DD54B70E79015500F7A0CA /* EditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DD54B60E79015500F7A0CA /* EditorController.m */; };
 		B0F9D84B0E7B3B01003D00EC /* warning.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B0F9D84A0E7B3B01003D00EC /* warning.tiff */; };
 		BC349916140844CE00425B15 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC349915140844CE00425B15 /* Sparkle.framework */; };
+		BC5F795117E93301009323C3 /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5F794D17E93301009323C3 /* SCEvent.m */; };
+		BC5F795217E93301009323C3 /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = BC5F795017E93301009323C3 /* SCEvents.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -84,11 +84,6 @@
 		B04B8AD10E78BF370040AF6F /* Remove Wiki Formatting.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = "Remove Wiki Formatting.app"; sourceTree = "<group>"; };
 		B04B8AD20E78BF370040AF6F /* WikiFolderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderApp.icns; sourceTree = "<group>"; };
 		B04B8AD30E78BF370040AF6F /* WikiFolderEdit.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderEdit.icns; sourceTree = "<group>"; };
-		B04B8AF80E78C1D90040AF6F /* SCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvent.h; sourceTree = "<group>"; };
-		B04B8AF90E78C1D90040AF6F /* SCEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvents.h; sourceTree = "<group>"; };
-		B04B8AFA0E78C1D90040AF6F /* SCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvent.m; sourceTree = "<group>"; };
-		B04B8AFB0E78C1D90040AF6F /* SCEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvents.m; sourceTree = "<group>"; };
-		B04B8AFC0E78C1D90040AF6F /* SCEventListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEventListenerProtocol.h; sourceTree = "<group>"; };
 		B04B8B5D0E78C61B0040AF6F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		B04B8B6E0E78CFB20040AF6F /* WikiFolderRemove.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderRemove.icns; sourceTree = "<group>"; };
 		B04B8B6F0E78CFB20040AF6F /* WikiFolderAdd.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = WikiFolderAdd.icns; sourceTree = "<group>"; };
@@ -111,6 +106,12 @@
 		B0E8BB840E7AF9300052097E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B0F9D84A0E7B3B01003D00EC /* warning.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = warning.tiff; sourceTree = "<group>"; };
 		BC349915140844CE00425B15 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		BC5F794B17E93301009323C3 /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
+		BC5F794C17E93301009323C3 /* SCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvent.h; sourceTree = "<group>"; };
+		BC5F794D17E93301009323C3 /* SCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvent.m; sourceTree = "<group>"; };
+		BC5F794E17E93301009323C3 /* SCEventListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEventListenerProtocol.h; sourceTree = "<group>"; };
+		BC5F794F17E93301009323C3 /* SCEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvents.h; sourceTree = "<group>"; };
+		BC5F795017E93301009323C3 /* SCEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvents.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +132,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BC5F794B17E93301009323C3 /* SCConstants.h */,
+				BC5F794C17E93301009323C3 /* SCEvent.h */,
+				BC5F794D17E93301009323C3 /* SCEvent.m */,
+				BC5F794E17E93301009323C3 /* SCEventListenerProtocol.h */,
+				BC5F794F17E93301009323C3 /* SCEvents.h */,
+				BC5F795017E93301009323C3 /* SCEvents.m */,
 				B003DAC30E777B91005CCBB8 /* ApplicationController.h */,
 				B003DAC40E777B91005CCBB8 /* ApplicationController.m */,
 				B0E8BB840E7AF9300052097E /* Constants.h */,
@@ -138,11 +145,6 @@
 				B0DD54B60E79015500F7A0CA /* EditorController.m */,
 				B08001D30E793C5D0074D0A6 /* NSMutableString+TagManipulation.h */,
 				B08001D40E793C5D0074D0A6 /* NSMutableString+TagManipulation.m */,
-				B04B8AF80E78C1D90040AF6F /* SCEvent.h */,
-				B04B8AFA0E78C1D90040AF6F /* SCEvent.m */,
-				B04B8AFC0E78C1D90040AF6F /* SCEventListenerProtocol.h */,
-				B04B8AF90E78C1D90040AF6F /* SCEvents.h */,
-				B04B8AFB0E78C1D90040AF6F /* SCEvents.m */,
 			);
 			name = Classes;
 			path = source;
@@ -321,10 +323,10 @@
 				B0615F460E793591007DB8BE /* Finder.app in Sources */,
 				B003DAC50E777B91005CCBB8 /* ApplicationController.m in Sources */,
 				B04B8AB90E78BCFD0040AF6F /* main.m in Sources */,
-				B04B8AFD0E78C1D90040AF6F /* SCEvent.m in Sources */,
-				B04B8AFE0E78C1D90040AF6F /* SCEvents.m in Sources */,
 				B0DD54B70E79015500F7A0CA /* EditorController.m in Sources */,
 				B08001D50E793C5D0074D0A6 /* NSMutableString+TagManipulation.m in Sources */,
+				BC5F795117E93301009323C3 /* SCEvent.m in Sources */,
+				BC5F795217E93301009323C3 /* SCEvents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,13 +365,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/frameworks\"",
 				);
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -385,14 +389,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/frameworks\"",
 				);
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = WikiFolders_Prefix.pch;

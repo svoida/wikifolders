@@ -1,50 +1,86 @@
 /*
- *  $Id: SCEvent.h 15 2008-04-21 20:06:30Z stuart $
+ *  $Id: SCEvent.h 195 2011-03-15 21:47:34Z stuart $
  *
  *  SCEvents
+ *  http://stuconnolly.com/projects/code/
  *
- *  Copyright (c) 2008 Stuart Connolly. All rights reserved.
+ *  Copyright (c) 2011 Stuart Connolly. All rights reserved.
+ *
+ *  Permission is hereby granted, free of charge, to any person
+ *  obtaining a copy of this software and associated documentation
+ *  files (the "Software"), to deal in the Software without
+ *  restriction, including without limitation the rights to use,
+ *  copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  copies of the Software, and to permit persons to whom the
+ *  Software is furnished to do so, subject to the following
+ *  conditions:
+ *
+ *  The above copyright notice and this permission notice shall be
+ *  included in all copies or substantial portions of the Software.
  * 
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ *  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ *  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ *  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ *  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ *  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ *  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ *  OTHER DEALINGS IN THE SOFTWARE.
  */
 
 #import <Foundation/Foundation.h>
+#if TARGET_OS_EMBEDDED || TARGET_OS_IPHONE || TARGET_OS_WIN32
+#import <CFNetwork/CFNetwork.h>
+#else
 #import <CoreServices/CoreServices.h>
+#endif
 
+
+#import "SCConstants.h"
+
+/**
+ * @class SCEvent SCEvent.h
+ *
+ * @author Stuart Connolly http://stuconnolly.com/
+ *
+ * Class representing a single file system event.
+ */
 @interface SCEvent : NSObject 
 {
     NSUInteger _eventId;
     NSDate *_eventDate;
     NSString *_eventPath;
-    
-    FSEventStreamEventFlags _eventFlag;
+    SCEventFlags _eventFlags;
 }
 
-+ (SCEvent *)eventWithEventId:(NSUInteger)eventId eventDate:(NSDate *)date eventPath:(NSString *)eventPath eventFlag:(FSEventStreamEventFlags)eventFlag;
+/**
+ * @property _eventId The ID of the event.
+ */
+@property (readwrite, assign, getter=eventId, setter=setEventId:) NSUInteger _eventId;
 
-- (id)initWithEventId:(NSUInteger)eventId eventDate:(NSDate *)date eventPath:(NSString *)eventPath eventFlag:(FSEventStreamEventFlags)eventFlag;
+/**
+ * @property _eventDate The date of the event.
+ */
+@property (readwrite, strong, getter=eventDate, setter=setEventDate:) NSDate *_eventDate;
 
-- (NSUInteger)eventId;
-- (void)setEventId:(NSUInteger)eventId;
+/**
+ * @property _eventPath The file system path of the event.
+ */
+@property (readwrite, strong, getter=eventPath, setter=setEventPath:) NSString *_eventPath;
 
-- (NSDate *)eventDate;
-- (void)setEventDate:(NSDate *)date;
+/**
+ * @property _eventFlag The flags that are associated with the event.
+ */
+@property (readwrite, assign, getter=eventFlags, setter=setEventFlags:) SCEventFlags _eventFlags;
 
-- (NSString *)eventPath;
-- (void)setEventPath:(NSString *)eventPath;
++ (SCEvent *)eventWithEventId:(NSUInteger)identifier 
+					eventDate:(NSDate *)date 
+					eventPath:(NSString *)path 
+					eventFlags:(SCEventFlags)flags;
 
-- (FSEventStreamEventFlags)eventFlag;
-- (void)setEventFlag:(FSEventStreamEventFlags)eventFlag;
+- (id)initWithEventId:(NSUInteger)identifier 
+			eventDate:(NSDate *)date 
+			eventPath:(NSString *)path 
+			eventFlags:(SCEventFlags)flags;
 
 @end
